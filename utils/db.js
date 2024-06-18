@@ -1,10 +1,10 @@
 import { MongoClient } from 'mongodb';
 
 class DBClient {
-  constructor () {
-    this.HOST = process.env.DB_HOST ?? 'localhost';
-    this.PORT = process.env.DB_PORT ?? '27017';
-    this.DB_NAME = process.env.DB_DATABASE ?? 'files_manager';
+  constructor() {
+    this.HOST = process.env.DB_HOST || 'localhost';
+    this.PORT = process.env.DB_PORT || '27017';
+    this.DB_NAME = process.env.DB_DATABASE || 'files_manager';
 
     this.url = `mongodb://${this.HOST}:${this.PORT}`;
     this.mongoClient = new MongoClient(this.url, { useUnifiedTopology: true });
@@ -34,7 +34,7 @@ class DBClient {
     const numDocuments = allDocuments.length;
 
     return numDocuments;
-  } 
+  }
 }
 
 const dbClient = new DBClient();
