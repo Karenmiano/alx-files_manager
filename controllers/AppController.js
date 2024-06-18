@@ -1,11 +1,11 @@
-import redisClient from "../utils/redis";
-import dbClient from "../utils/db";
+import redisClient from '../utils/redis';
+import dbClient from '../utils/db';
 
 export default class AppController {
   static getStatus(request, response) {
     response.send({
-      "redis": redisClient.isAlive(),
-      "db": dbClient.isAlive(),
+      redis: redisClient.isAlive(),
+      db: dbClient.isAlive(),
     });
   }
 
@@ -15,8 +15,8 @@ export default class AppController {
       const fileCount = await dbClient.nbFiles();
 
       response.send({
-        "users": userCount,
-        "files": fileCount,
+        users: userCount,
+        files: fileCount,
       });
     }
 
